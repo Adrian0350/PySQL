@@ -1,6 +1,7 @@
 from __future__ import print_function
 from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
+
 import io
 import codecs
 import os
@@ -14,6 +15,17 @@ here = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(here, 'README.md'), encoding='UTF-8') as f:
 	long_description = f.read()
 
+class PyTest(TestCommand):
+	def finalize_options(self):
+		TestCommand.finalize_options(self)
+		self.test_args = []
+		self.test_suite = True
+
+	def run_tests(self):
+		import pytest
+		errcode = pytest.main(self.test_args)
+		sys.exit(errcode)
+
 setup(
 	name='PySQL',
 	version=pysql.__version__,
@@ -25,8 +37,16 @@ setup(
 	platforms='any',
 	keywords='mysql implementation development',  # Optional
 	packages=['pysql'],
-	tests_require=['pytest'],
+	install_requires=[
+		'PyMySQL'
+	],
+	tests_require=[
+		'pytest'
+	],
 	test_suite='pysql.test.test_pysql',
+	cmdclass={
+		'test': PyTest
+	},
 	include_package_data=True,
 	classifiers=[
 		#   3 - Alpha
