@@ -7,7 +7,7 @@ import codecs
 import os
 import sys
 
-import pysql
+import package
 
 here = os.path.abspath(os.path.dirname(__file__))
 
@@ -27,25 +27,23 @@ class PyTest(TestCommand):
 		sys.exit(errcode)
 
 setup(
-	name='PySQL',
-	version=pysql.__version__,
+	name='Python-Module-Structure',
+	version=package.__version__,
 	description='A MySQL implementation in Python',
 	long_description=long_description,
-	url='https://github.com/Adrian0350/PySQL',
+	url='https://github.com/Adrian0350/Python-Module-Structure',
 	author='Adrián Zúñiga',
 	author_email='jaime.ziga@gmail.com',
 	platforms='any',
 	keywords='mysql implementation development',  # Optional
 	packages=[
-		'pysql'
-	],
-	install_requires=[
-		'pymysql'
-	],
+		'package'
+],
+	install_requires=[],
 	tests_require=[
 		'pytest'
 	],
-	test_suite='pysql.test.test_pysql',
+	test_suite='Python-Module-Structure.test.test_package',
 	cmdclass={
 		'test': PyTest
 	},

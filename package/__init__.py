@@ -1,3 +1,3 @@
-from . import pysql
+from . import package
 
 __version__ = '0.0.1'
