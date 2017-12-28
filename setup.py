@@ -36,9 +36,11 @@ setup(
 	author_email='jaime.ziga@gmail.com',
 	platforms='any',
 	keywords='mysql implementation development',  # Optional
-	packages=['pysql'],
+	packages=[
+		'pysql'
+	],
 	install_requires=[
-		'PyMySQL'
+		'pymysql'
 	],
 	tests_require=[
 		'pytest'
@@ -56,14 +58,14 @@ setup(
 		'Intended Audience :: Developers',
 		'Topic :: Software Development :: Build Tools',
 		'License :: MIT License',
-		'Programming Language :: Python :: 2',
-		'Programming Language :: Python :: 2.7',
 		'Programming Language :: Python :: 3',
 		'Programming Language :: Python :: 3.4',
 		'Programming Language :: Python :: 3.5',
 		'Programming Language :: Python :: 3.6',
 	],
 	extras_require={
-		'testing': ['pytest']
+		'testing': [
+			'pytest'
+		]
 	}
 )
