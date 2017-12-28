@@ -35,10 +35,10 @@ setup(
 	author='Adrián Zúñiga',
 	author_email='jaime.ziga@gmail.com',
 	platforms='any',
-	keywords='mysql implementation development',  # Optional
+	keywords='python module package basic example implementation development',  # Optional
 	packages=[
 		'package'
-],
+	],
 	install_requires=[],
 	tests_require=[
 		'pytest'
